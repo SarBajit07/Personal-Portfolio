@@ -13,10 +13,12 @@ A modern, responsive personal portfolio website built to showcase my skills, pro
 
 ## 🛠️ Tech Stack  
 
-Frontend: React + Vite 
-Styling:  Tailwind CSS
-Bundler : Vite 
+- Frontend: React + Vite 
+- Styling:  Tailwind CSS
+- Bundler : Vite 
 
-Contributing
+-Contributing
 
-Contributions are welcome! If you want to improve the design, add a section, or fix bugs — feel free to submit a pull request.
+-Contributions are welcome! If you want to improve the design, add a section, or fix bugs — feel free to submit a pull request.
+
+https://sarbajit-timalsina-personal-portfol.vercel.app/
