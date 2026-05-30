@@ -6,8 +6,14 @@ import projectRoutes from './routes/projects.js';
 import skillRoutes from './routes/skills.js';
 import timelineRoutes from './routes/timeline.js';
 import contactRoutes from './routes/contact.js';
+import { query } from './db.js';
 
 dotenv.config();
+
+// Test database connection on startup
+query('SELECT NOW()')
+  .then(() => console.log('✅ Connected to PostgreSQL database successfully!'))
+  .catch((err) => console.error('❌ PostgreSQL Database connection error:', err.message));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
