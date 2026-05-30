@@ -1,6 +1,6 @@
 import { RevealOnScroll } from "../RevealOnScroll";
-import emailjs from "emailjs-com";
 import { useState } from "react";
+import { API_BASE_URL } from "../../config";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,31 +10,29 @@ export const Contact = () => {
   });
   const [isSending, setIsSending] = useState(false);
 
-  const SERVICE_ID = "service_io47x8l";
-  const TEMPLATE_ID = "template_ndpo9pe";
-  const PUBLIC_KEY = "ElI7pCqni-4vIl9VF";
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    emailjs
-      .send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        PUBLIC_KEY
-      )
+    fetch(`${API_BASE_URL}/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to send message.");
+        }
+        return res.json();
+      })
       .then(() => {
         alert("Message Sent! ✅");
         setFormData({ name: "", email: "", message: "" });
       })
       .catch((err) => {
-        console.error("EmailJS Error:", err);
+        console.error("Submission Error:", err);
         alert("Oops, something went wrong. Please try again. ❌");
       })
       .finally(() => {

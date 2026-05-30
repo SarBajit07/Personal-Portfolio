@@ -7,6 +7,7 @@ import { Home } from "./components/section/Home";
 import { About } from "./components/section/About";
 import { Projects } from "./components/section/Projects";
 import { Contact } from "./components/section/Contact";
+import { AdminPanel } from "./components/admin/AdminPanel";
 import "./index.css";
 
 function App() {
@@ -14,6 +15,26 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  // Handle Hash & Path Routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
+  const isAdmin = currentPath === "/admin" || currentHash === "#admin" || currentHash.startsWith("#admin");
 
   // Handle Scroll Progress
   useEffect(() => {
@@ -35,6 +56,15 @@ function App() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  if (isAdmin) {
+    return (
+      <>
+        <div className="grain-overlay" />
+        <AdminPanel />
+      </>
+    );
+  }
 
   return (
     <>
