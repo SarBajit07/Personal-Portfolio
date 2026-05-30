@@ -1,34 +1,49 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 
 export const Home = () => {
-    return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative"
+  return (
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
+      {/* Local Ambient Radial Glow Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-gradient-to-tr from-blue-500/10 to-cyan-500/5 rounded-full blur-[80px] md:blur-[120px] opacity-75" />
+      </div>
+
       <RevealOnScroll>
-       <div className="text-center z-10 px-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400  bg-clip-text-transparent  leading-right">Hi, I'm Sarbajit Timalsina
+        <div className="text-center z-10 px-4 max-w-3xl mx-auto flex flex-col items-center">
+          {/* Tech Tag */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 text-[10px] md:text-xs font-mono mb-6 tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            Available for Opportunities
+          </div>
 
-        </h1>
-      
-        <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
-        I am a passionate Front end  crafting seamless web experiences who  loves crafting clean, scalable web aplications. My goal is to build solutions that offer both exceptional performance and a delightful user experience.
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+            Hi, I'm Sarbajit Timalsina
+          </h1>
+          
+          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-xl leading-relaxed">
+            I am a passionate Frontend Developer dedicated to crafting clean, scalable web applications. My goal is to build digital solutions that offer both exceptional performance and a delightful, memorable user experience.
+          </p>
 
-        </p>
-         <div className="flex justify-center space-x-4">
-              <a href="#projects" className="bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 
-              hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.4 )]"
-              >
-                View Projects
-                </a>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">
+            <a 
+              href="#projects" 
+              className="w-full sm:w-auto text-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3.5 px-8 rounded-full font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]"
+            >
+              View Projects
+            </a>
 
-            <a href="#contact" className="border border-blue-500/50 text-blue-500 py-3 px-6  rounded font-medium transition-all duration-200  
-            hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.2 )] hover:bg-blue-500/10"
-              >
-                Contact Me
-                </a>
-         </div>
-       </div>
+            <a 
+              href="#contact" 
+              className="w-full sm:w-auto text-center border border-blue-500/30 text-blue-400 py-3.5 px-8 rounded-full font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500/10 hover:border-blue-500/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
       </RevealOnScroll>
     </section>
-    );
+  );
 };
