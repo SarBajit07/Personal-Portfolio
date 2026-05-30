@@ -6,6 +6,7 @@
 
   --animate-blink: blink 0.8s step-end infinite;
   --animate-loading: loading 0.8s ease infinite;
+  --animate-fade-in-up: fade-in-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -14,6 +15,16 @@
   @keyframes loading {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(250%); }
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(4px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }
 

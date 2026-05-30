@@ -37,7 +37,7 @@ export const Projects = () => {
 
           {loading ? (
             // Shimmering skeleton loader structure
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[80vw] max-w-4xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
               {[1, 2].map((i) => (
                 <div 
                   key={i} 

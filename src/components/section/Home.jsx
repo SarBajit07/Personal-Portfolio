@@ -4,11 +4,11 @@ export const Home = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20 sm:py-28"
     >
       {/* Local Ambient Radial Glow Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-gradient-to-tr from-blue-500/10 to-cyan-500/5 rounded-full blur-[80px] md:blur-[120px] opacity-75" />
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-gradient-to-tr from-blue-500/10 to-cyan-500/5 rounded-full blur-[80px] md:blur-[150px] opacity-75" />
       </div>
 
       <RevealOnScroll>
@@ -19,11 +19,11 @@ export const Home = () => {
             Available for Opportunities
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-left">
             Hi, I'm Sarbajit Timalsina
           </h1>
           
-          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-xl leading-relaxed">
+          <p className="text-gray-400 text-base sm:text-base md:text-lg mb-10 max-w-xl leading-relaxed">
             I am a passionate Frontend Developer dedicated to crafting clean, scalable web applications. My goal is to build digital solutions that offer both exceptional performance and a delightful, memorable user experience.
           </p>
 
