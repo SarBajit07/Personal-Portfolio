@@ -89,7 +89,7 @@ export const About = () => {
               {/* Intro Card */}
               <div className="glass-card p-8 mb-10">
                 <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-8">
-                  I am a passionate frontend developer dedicated to building responsive, scalable, and high-performance web applications. I love creating clean code architectures and crafting delightful, user-centric interfaces.
+                  I'm a <span className="text-blue-400 font-semibold">Full Stack Developer</span> passionate about building complete, production-grade web applications. On the frontend, I craft responsive, pixel-perfect React interfaces. On the backend, I design RESTful APIs with Node.js &amp; Express, manage relational data with PostgreSQL, and deploy scalable services on platforms like Render and Vercel. I care deeply about clean architecture, performance, and seamless user experiences — from the database all the way to the browser.
                 </p>
 
                 <h3 className="font-display text-xl font-bold mb-6 text-white border-b border-white/5 pb-2">

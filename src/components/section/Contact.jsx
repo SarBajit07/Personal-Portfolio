@@ -79,7 +79,7 @@ export const Contact = () => {
               </h2>
               
               <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Have an exciting project idea, a position to fill, or just want to chat about front-end engineering? Drop me a line and let's work together to turn your vision into reality.
+                Have an exciting project idea, a position to fill, or just want to chat about full-stack engineering? Drop me a line and let's work together to turn your vision into a polished, production-ready reality.
               </p>
 
               <div className="space-y-4 max-w-md">

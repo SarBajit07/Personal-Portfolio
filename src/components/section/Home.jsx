@@ -16,15 +16,15 @@ export const Home = () => {
           {/* Tech Tag */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 text-[10px] md:text-xs font-mono mb-6 tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            Available for Opportunities
+            Full Stack Developer · Available for Opportunities
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-left">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-center">
             Hi, I'm Sarbajit Timalsina
           </h1>
           
           <p className="text-gray-400 text-base sm:text-base md:text-lg mb-10 max-w-xl leading-relaxed">
-            I am a passionate Frontend Developer dedicated to crafting clean, scalable web applications. My goal is to build digital solutions that offer both exceptional performance and a delightful, memorable user experience.
+            I'm a passionate <span className="text-blue-400 font-semibold">Full Stack Developer</span> who architects end-to-end web applications — from pixel-perfect React UIs to robust Node.js APIs backed by PostgreSQL. I'm driven by building fast, scalable, and delightful digital experiences that work beautifully inside and out.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">

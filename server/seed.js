@@ -1,8 +1,13 @@
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { query } from './db.js';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const seed = async () => {
   console.log('Starting database seeding...');
@@ -82,10 +87,10 @@ const seed = async () => {
     const timelines = [
       {
         type: 'education',
-        period: '2022 - Present',
+        period: '2022 - 2026',
         title: 'B.Sc. in CSIT',
         organization: 'Madan Bhandari Memorial College',
-        description: 'Running in 8th Semester. Specialized coursework in Web Development, Database Management, and Data Structures.',
+        description: 'Completed Bachelor\'s degree with specialized coursework in Web Development, Database Management, Data Structures, and Software Engineering.',
         order_index: 0
       },
       {

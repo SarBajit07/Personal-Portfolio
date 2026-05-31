@@ -8,6 +8,7 @@ import { About } from "./components/section/About";
 import { Projects } from "./components/section/Projects";
 import { Contact } from "./components/section/Contact";
 import { AdminPanel } from "./components/admin/AdminPanel";
+import { ErrorPage } from "./components/ErrorPage";
 import "./index.css";
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
     };
   }, []);
 
+  const isHome = currentPath === "/" || currentPath === "/index.html";
   const isAdmin = currentPath === "/admin" || currentHash === "#admin" || currentHash.startsWith("#admin");
+  const isError = !isHome && !isAdmin;
 
   // Handle Scroll Progress
   useEffect(() => {
@@ -96,16 +99,22 @@ function App() {
           isLoaded ? "opacity-100" : "opacity-0"
         } bg-[#050508] text-gray-100 relative z-10`}
       >
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        
-        {/* Main Content Sections */}
-        <main className="relative">
-          <Home />
-          <About />
-          <Projects />
-          <Contact />
-        </main>
+        {isError ? (
+          <ErrorPage />
+        ) : (
+          <>
+            <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            
+            {/* Main Content Sections */}
+            <main className="relative">
+              <Home />
+              <About />
+              <Projects />
+              <Contact />
+            </main>
+          </>
+        )}
       </div>
     </>
   );
