@@ -32,17 +32,28 @@ router.post('/', async (req, res) => {
     });
 
     const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`, // Gmail requires sender to be auth user or alias
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.RECEIVER_EMAIL,
       replyTo: email, // Set reply-to to the sender's actual email
-      subject: `Portfolio Contact Form: Message from ${name}`,
+      subject: `[Portfolio] New message from ${name}`,
       text: `You have received a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
       html: `
-        <h3>New Contact Form Message</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p style="white-space: pre-wrap; background-color: #f5f5f5; padding: 15px; border-radius: 5px;">${message}</p>
+        <!DOCTYPE html>
+        <html>
+          <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background:#f9f9f9; padding: 20px;">
+            <div style="background: #1a1a2e; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+              <h2 style="margin:0;">📬 New Portfolio Message</h2>
+            </div>
+            <div style="background: white; padding: 25px; border-radius: 0 0 8px 8px; border: 1px solid #ddd;">
+              <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
+              <hr style="border: 1px solid #eee;">
+              <p><strong>Message:</strong></p>
+              <p style="white-space: pre-wrap; background-color: #f5f5f5; padding: 15px; border-radius: 5px; color: #333;">${message}</p>
+              <hr style="border: 1px solid #eee;">
+              <p style="color: #888; font-size: 12px;">Sent via your portfolio contact form. Reply directly to this email to respond to ${name}.</p>
+            </div>
+          </body>
+        </html>
       `,
     };
 
