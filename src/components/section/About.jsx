@@ -44,7 +44,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center py-24 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center py-16 sm:py-24 relative overflow-hidden"
     >
       <RevealOnScroll>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
@@ -53,7 +53,7 @@ export const About = () => {
           </h2>
 
           {loading ? (
-            <div className="space-y-10 animate-pulse w-[80vw] max-w-4xl">
+            <div className="space-y-10 animate-pulse w-full max-w-4xl">
               {/* Intro card skeleton */}
               <div className="glass-card p-8">
                 <div className="h-4 bg-white/5 rounded w-full mb-3" />

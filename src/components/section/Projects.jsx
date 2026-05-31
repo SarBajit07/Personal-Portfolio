@@ -27,7 +27,7 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center py-24 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center py-16 sm:py-24 relative overflow-hidden"
     >
       <RevealOnScroll>
         <div className="max-w-4xl mx-auto px-4 relative z-10">

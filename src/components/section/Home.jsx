@@ -4,7 +4,7 @@ export const Home = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20 sm:py-28"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-16 sm:py-24 md:py-28"
     >
       {/* Local Ambient Radial Glow Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

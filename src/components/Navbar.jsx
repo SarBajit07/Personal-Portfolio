@@ -7,11 +7,11 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-40 px-4">
-      <div className="max-w-5xl mx-auto glass-pill rounded-2xl md:rounded-full px-6 py-3.5 shadow-lg">
+      <div className="max-w-5xl mx-auto glass-pill rounded-2xl md:rounded-full px-4 sm:px-6 py-3.5 shadow-lg">
         <div className="flex justify-between items-center">
           <a 
             href="#home" 
-            className="font-display text-lg font-bold text-white tracking-wide transition-all hover:opacity-80"
+            className="font-display text-base sm:text-lg font-bold text-white tracking-wide transition-all hover:opacity-80"
           >
             Sarbajit <span className="text-blue-500 font-normal">Timalsina</span>
           </a>

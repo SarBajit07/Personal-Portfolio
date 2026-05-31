@@ -55,7 +55,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-24 px-4 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center py-16 sm:py-24 px-4 relative overflow-hidden"
     >
       {/* Background Glow Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
