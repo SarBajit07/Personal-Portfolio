@@ -130,6 +130,23 @@ Now that your backend is running live, you just need to tell your Vercel fronten
    - Click on your latest deployment, click the **three dots (...)**, and select **Redeploy** (without cache).
    - This ensures the new environment variable is injected into the build!
 
+### 🔄 Support for Client-Side Routing (Crucial for `/admin` page)
+Since this is a Single Page Application (SPA), if you directly visit `/admin` or refresh the page on `/admin`, Vercel will look for a physical `/admin` or `/admin.html` file, which does not exist in the build output, leading to a **`404: NOT_FOUND`** error.
+
+To solve this, we have created a `vercel.json` configuration file in the project's root folder:
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+This instructs Vercel to route all incoming traffic to `index.html`, allowing the client-side router inside React to seamlessly handle the routing logic. Ensure this file is committed and pushed to your GitHub repository so Vercel can apply the config.
+
+
 ---
 
 ## ✅ Step 5: Verify & Celebrate!
