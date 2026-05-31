@@ -38,6 +38,17 @@ function App() {
   const isAdmin = currentPath === "/admin" || currentHash === "#admin" || currentHash.startsWith("#admin");
   const isError = !isHome && !isAdmin;
 
+  // Dynamically update page title for SEO & UI clarity
+  useEffect(() => {
+    if (isAdmin) {
+      document.title = "Admin Dashboard | Sarbajit Timalsina";
+    } else if (isError) {
+      document.title = "Page Not Found | Sarbajit Timalsina";
+    } else {
+      document.title = "Sarbajit Timalsina | Full-Stack Web Developer & Designer";
+    }
+  }, [isAdmin, isError]);
+
   // Handle Scroll Progress
   useEffect(() => {
     const handleScroll = () => {

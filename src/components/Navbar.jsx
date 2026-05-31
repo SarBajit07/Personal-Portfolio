@@ -6,11 +6,12 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-40 px-4">
+    <nav className="fixed top-4 left-0 right-0 z-40 px-4" aria-label="Primary Navigation">
       <div className="max-w-5xl mx-auto glass-pill rounded-2xl md:rounded-full px-4 sm:px-6 py-3.5 shadow-lg">
         <div className="flex justify-between items-center">
           <a 
             href="#home" 
+            aria-label="Sarbajit Timalsina - Back to top"
             className="font-display text-base sm:text-lg font-bold text-white tracking-wide transition-all hover:opacity-80"
           >
             Sarbajit <span className="text-blue-500 font-normal">Timalsina</span>
@@ -29,19 +30,19 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center space-x-8"> 
-            <a href="#home" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
+            <a href="#home" aria-label="Go to Home section" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
               Home
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
             </a>
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
+            <a href="#about" aria-label="Go to About section" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
               About
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
             </a>
-            <a href="#projects" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
+            <a href="#projects" aria-label="Go to Projects section" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
               Projects
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
             </a>
-            <a href="#contact" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
+            <a href="#contact" aria-label="Go to Contact section" className="text-gray-300 hover:text-white transition-colors relative group py-1 text-sm font-medium">
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
             </a>

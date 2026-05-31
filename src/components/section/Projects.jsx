@@ -99,6 +99,9 @@ export const Projects = () => {
                   <div className="flex justify-between items-center border-t border-white/5 pt-4 mt-auto">
                     <a 
                       href={project.link || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View live demo of ${project.title}`}
                       className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group"
                     >
                       View Project
@@ -111,6 +114,7 @@ export const Projects = () => {
                         href={project.github_link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View source code for ${project.title} on GitHub`}
                         className="text-gray-500 hover:text-white text-xs font-mono transition-colors"
                       >
                         GitHub

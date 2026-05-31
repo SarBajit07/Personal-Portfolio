@@ -1,0 +1,17 @@
+# robots.txt for Sarbajit Timalsina's Professional Portfolio
+# For more info: https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Prevent search engine crawlers from indexing private administrative interfaces
+Disallow: /admin
+Disallow: /admin/
+Disallow: /#admin
+
+# Prevent search engine crawlers from indexing the direct backend APIs
+Disallow: /api/
+
+# Pointer to your website's sitemap.xml
+# Note: If you deploy to a custom domain (e.g. yourname.dev), replace this with your actual domain.
+Sitemap: https://sarbajit-timalsina-personal-portfol.vercel.app/sitemap.xml
