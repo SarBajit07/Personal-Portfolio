@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { LoadingScreen } from "./components/LoadingScreen";
 import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
 import { Home } from "./components/section/Home";
@@ -12,7 +11,7 @@ import { ErrorPage } from "./components/ErrorPage";
 import "./index.css";
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
@@ -71,8 +70,6 @@ function App() {
 
   return (
     <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-
       {/* Global Grain and Grid Overlays */}
       <div className="grain-overlay" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-grid-pattern opacity-[0.3]" />

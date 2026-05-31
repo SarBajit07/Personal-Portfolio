@@ -15,7 +15,7 @@ export const Contact = () => {
   const handleCopyEmail = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText("sarbajit.timalsina07@gmail.com").then(() => {
+    navigator.clipboard.writeText("sarbajeet4604@gmail.com").then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
@@ -94,10 +94,10 @@ export const Contact = () => {
                     <div className="min-w-0">
                       <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest">Email Address</span>
                       <a 
-                        href="mailto:sarbajit.timalsina07@gmail.com" 
+                        href="mailto:sarbajeet4604@gmail.com" 
                         className="text-sm font-semibold text-white hover:text-blue-400 transition-colors duration-200 break-all"
                       >
-                        sarbajit.timalsina07@gmail.com
+                        sarbajeet4604@gmail.com
                       </a>
                     </div>
                   </div>
