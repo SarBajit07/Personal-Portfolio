@@ -1,6 +1,7 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../../config";
+import { fetchWithCache } from "../../utils/apiCache";
 
 export const About = () => {
   const [skills, setSkills] = useState([]);
@@ -9,36 +10,48 @@ export const About = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    Promise.all([
-      fetch(`${API_BASE_URL}/skills`).then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch skills");
-        return res.json();
-      }),
-      fetch(`${API_BASE_URL}/timeline`).then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch timeline");
-        return res.json();
-      })
-    ])
-      .then(([skillsData, timelineData]) => {
-        setSkills(skillsData);
-        setTimeline(timelineData);
-        setLoading(false);
-      })
-      .catch((err) => {
+    let skillsDone = false;
+    let timelineDone = false;
+    let hasError = false;
+
+    const tryFinish = () => {
+      if (skillsDone && timelineDone) setLoading(false);
+    };
+
+    fetchWithCache(
+      `${API_BASE_URL}/skills`,
+      (data) => {
+        setSkills(data);
+        skillsDone = true;
+        tryFinish();
+      },
+      (err) => {
+        if (!hasError) { hasError = true; setError("Error loading profile content."); setLoading(false); }
         console.error(err);
-        setError("Error loading profile content.");
-        setLoading(false);
-      });
+      }
+    );
+
+    fetchWithCache(
+      `${API_BASE_URL}/timeline`,
+      (data) => {
+        setTimeline(data);
+        timelineDone = true;
+        tryFinish();
+      },
+      (err) => {
+        if (!hasError) { hasError = true; setError("Error loading profile content."); setLoading(false); }
+        console.error(err);
+      }
+    );
   }, []);
+
 
   const educationItems = timeline.filter((item) => item.type === "education");
   const experienceItems = timeline.filter((item) => item.type === "experience");
 
-  // Dynamic colors matching original CSS scheme
+  // Refined theme color configuration
   const themeColors = [
-    { text: "text-blue-400", border: "hover:border-blue-500/20", bg: "bg-blue-500/5", borderTech: "border-blue-500/10", textTech: "text-blue-400", shadow: "hover:shadow-[0_2px_8px_rgba(59,130,246,0.15)]", bgHover: "hover:bg-blue-500/15" },
-    { text: "text-cyan-400", border: "hover:border-cyan-500/20", bg: "bg-cyan-500/5", borderTech: "border-cyan-500/10", textTech: "text-cyan-400", shadow: "hover:shadow-[0_2px_8px_rgba(6,182,212,0.15)]", bgHover: "hover:bg-cyan-500/15" },
-    { text: "text-teal-400", border: "hover:border-teal-500/20", bg: "bg-teal-500/5", borderTech: "border-teal-500/10", textTech: "text-teal-400", shadow: "hover:shadow-[0_2px_8px_rgba(20,184,166,0.15)]", bgHover: "hover:bg-teal-500/15" }
+    { text: "text-zinc-200", border: "hover:border-blue-500/25", bg: "bg-blue-500/5", borderTech: "border-blue-500/10", textTech: "text-blue-300/90", shadow: "hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)]", bgHover: "hover:bg-blue-500/10" }
   ];
 
   return (
@@ -48,7 +61,7 @@ export const About = () => {
     >
       <RevealOnScroll>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-12 bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-center tracking-wide">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-12 bg-gradient-to-b from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent text-center tracking-wide">
             About Me
           </h2>
 
@@ -88,8 +101,8 @@ export const About = () => {
             <>
               {/* Intro Card */}
               <div className="glass-card p-8 mb-10">
-                <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-8">
-                  I'm a <span className="text-blue-400 font-semibold">Full Stack Developer</span> passionate about building complete, production-grade web applications. On the frontend, I craft responsive, pixel-perfect React interfaces. On the backend, I design RESTful APIs with Node.js &amp; Express, manage relational data with PostgreSQL, and deploy scalable services on platforms like Render and Vercel. I care deeply about clean architecture, performance, and seamless user experiences — from the database all the way to the browser.
+                <p className="text-zinc-300 leading-relaxed text-base md:text-lg mb-8">
+                  I'm a <span className="text-white font-medium">Full Stack Developer</span> passionate about building complete, production-grade web applications. On the frontend, I craft responsive, pixel-perfect React interfaces. On the backend, I design RESTful APIs with Node.js &amp; Express, manage relational data with PostgreSQL, and deploy scalable services on platforms like Render and Vercel. I care deeply about clean architecture, performance, and seamless user experiences — from the database all the way to the browser.
                 </p>
 
                 <h3 className="font-display text-xl font-bold mb-6 text-white border-b border-white/5 pb-2">
@@ -137,7 +150,7 @@ export const About = () => {
                       {educationItems.map((item, key) => (
                         <div key={item.id || key} className="relative">
                           {/* Timeline Dot */}
-                          <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]" />
+                          <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
                           <span className="text-xs font-mono text-blue-400 font-semibold">{item.period}</span>
                           <h4 className="text-base font-bold text-white mt-1">
                             {item.title}
@@ -166,8 +179,8 @@ export const About = () => {
                       {experienceItems.map((item, key) => (
                         <div key={item.id || key} className="relative">
                           {/* Timeline Dot */}
-                          <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-cyan-500 shadow-[0_0_8px_#06b6d4]" />
-                          <span className="text-xs font-mono text-cyan-400 font-semibold">{item.period}</span>
+                          <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.35)]" />
+                          <span className="text-xs font-mono text-blue-400 font-semibold">{item.period}</span>
                           <h4 className="text-base font-bold text-white mt-1">
                             {item.title}
                           </h4>

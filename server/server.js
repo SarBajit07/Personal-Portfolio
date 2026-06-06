@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import compression from 'compression';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projects.js';
@@ -17,6 +18,9 @@ query('SELECT NOW()')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Enable gzip compression
+app.use(compression());
 
 // Enable CORS with customizable origin
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';

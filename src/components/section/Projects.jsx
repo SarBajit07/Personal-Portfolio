@@ -1,6 +1,7 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../../config";
+import { fetchWithCache } from "../../utils/apiCache";
 
 export const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -8,20 +9,18 @@ export const Projects = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/projects`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load projects.");
-        return res.json();
-      })
-      .then((data) => {
+    fetchWithCache(
+      `${API_BASE_URL}/projects`,
+      (data) => {
         setProjects(data);
         setLoading(false);
-      })
-      .catch((err) => {
+      },
+      (err) => {
         console.error(err);
         setError(err.message);
         setLoading(false);
-      });
+      }
+    );
   }, []);
 
   return (
@@ -31,7 +30,7 @@ export const Projects = () => {
     >
       <RevealOnScroll>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-12 bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-center tracking-wide">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-12 bg-gradient-to-b from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent text-center tracking-wide">
             Featured Projects
           </h2>
 
@@ -88,7 +87,7 @@ export const Projects = () => {
                       {project.tech.map((tech, tKey) => (
                         <span
                           key={tKey}
-                          className="bg-blue-500/5 border border-blue-500/10 text-blue-400 py-1 px-2.5 rounded-full text-xs font-mono"
+                          className="bg-blue-950/20 border border-blue-900/30 text-blue-300/90 py-1 px-2.5 rounded-full text-xs font-mono"
                         >
                           {tech}
                         </span>

@@ -14,7 +14,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
             aria-label="Sarbajit Timalsina - Back to top"
             className="font-display text-base sm:text-lg font-bold text-white tracking-wide transition-all hover:opacity-80"
           >
-            Sarbajit <span className="text-blue-500 font-normal">Timalsina</span>
+            Sarbajit <span className="text-zinc-400 font-light">Timalsina</span>
           </a>
 
           {/* Mobile Menu Burger Icon */}

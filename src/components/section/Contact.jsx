@@ -69,12 +69,12 @@ export const Contact = () => {
             {/* Left Column: Intro & Contact Info */}
             <div className="lg:col-span-5 flex flex-col justify-center h-full">
               {/* Opportunities Tag */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-[10px] md:text-xs font-mono mb-6 tracking-widest uppercase self-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/10 bg-emerald-500/5 text-emerald-400/90 text-[10px] md:text-xs font-mono mb-6 tracking-widest uppercase self-start">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 Available for Projects
               </div>
 
-              <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent text-left">
+              <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-b from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent text-left">
                 Let's build something great.
               </h2>
               
@@ -275,7 +275,7 @@ export const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSending}
-                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3.5 px-6 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] disabled:opacity-50 disabled:pointer-events-none cursor-pointer text-center text-sm tracking-wide flex items-center justify-center gap-2"
+                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3.5 px-6 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] disabled:opacity-50 disabled:pointer-events-none cursor-pointer text-center text-sm tracking-wide flex items-center justify-center gap-2"
                     >
                       {isSending ? (
                         <>

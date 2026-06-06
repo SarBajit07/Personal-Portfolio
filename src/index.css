@@ -68,7 +68,7 @@ body {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  background: linear-gradient(to right, #3b82f6, #6366f1);
   z-index: 100;
   transition: width 0.1s ease-out;
 }

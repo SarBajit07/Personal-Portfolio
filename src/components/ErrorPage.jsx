@@ -64,7 +64,7 @@ export const ErrorPage = () => {
         </div>
 
         {/* 404 Typography */}
-        <h1 className="text-8xl md:text-9xl font-extrabold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-indigo-400 to-cyan-400 drop-shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+        <h1 className="text-8xl md:text-9xl font-extrabold tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-500 drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]">
           404
         </h1>
         
